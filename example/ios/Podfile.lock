@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - hardware_crypto (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - integration_test (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - hardware_crypto (from `.symlinks/plugins/hardware_crypto/darwin`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  hardware_crypto:
+    :path: ".symlinks/plugins/hardware_crypto/darwin"
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
+
+SPEC CHECKSUMS:
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  hardware_crypto: 10865e8e47b53899bb7c2386ca2451b7ad85c6cc
+  integration_test: 13825b8a9334a850581300559b8839134b124670
+
+PODFILE CHECKSUM: ade96bceabe3919b69c16573938e4268fe3a6c9d
+
+COCOAPODS: 1.14.3
