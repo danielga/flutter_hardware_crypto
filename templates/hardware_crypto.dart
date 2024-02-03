@@ -1,16 +1,16 @@
 import 'package:pigeon/pigeon.dart';
 
-class Version {
-  String? string;
-}
-
 @ConfigurePigeon(PigeonOptions(
+  cppOptions: CppOptions(namespace: 'hardware_crypto'),
+  cppHeaderOut: 'windows/hardware_crypto.g.hpp',
+  cppSourceOut: 'windows/hardware_crypto.g.cpp',
+  dartPackageName: 'hardware_crypto',
   dartOut: 'lib/hardware_crypto.g.dart',
   dartTestOut: 'test/hardware_crypto_test.g.dart',
-  kotlinOut: 'android/src/main/kotlin/xyz/metaman/hardware_crypto/HardwareCrypto.g.kt',
   kotlinOptions: KotlinOptions(package: 'xyz.metaman.hardware_crypto'),
+  kotlinOut:
+      'android/src/main/kotlin/xyz/metaman/hardware_crypto/HardwareCrypto.g.kt',
   swiftOut: 'darwin/Classes/HardwareCrypto.g.swift',
-  dartPackageName: 'hardware_crypto',
 ))
 @HostApi()
 abstract class HardwareCryptoApi {
