@@ -1,6 +1,6 @@
 #include "hardware_crypto_plugin_private.h"
 
-#include <hardware_crypto.h>
+#include <hardware_crypto.hpp>
 
 #include <flutter_linux/flutter_linux.h>
 #include <gtk/gtk.h>
@@ -52,9 +52,9 @@ static void hardware_crypto_plugin_init(HardwareCryptoPlugin *self) {}
 FlValue *hardware_crypto_plugin_send_exception(const std::exception& exception)
 {
   const auto err = fl_value_new_list();
-  fl_value_append_take(self->value, fl_value_new_string(exception.what()));
-  fl_value_append_take(self->value, fl_value_new_string("Error"));
-  fl_value_append_take(self->value, fl_value_new_null());
+  fl_value_append_take(err, fl_value_new_string(exception.what()));
+  fl_value_append_take(err, fl_value_new_string("Error"));
+  fl_value_append_take(err, fl_value_new_null());
   return err;
 }
 

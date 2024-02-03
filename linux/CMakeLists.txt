@@ -16,6 +16,8 @@ set(PLUGIN_NAME "hardware_crypto_plugin")
 # Any new source files that you add to the plugin should be added here.
 list(APPEND PLUGIN_SOURCES
   "hardware_crypto_plugin.cc"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../cpp/hardware_crypto.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../cpp/hardware_crypto.hpp"
 )
 
 # Define the plugin library target. Its name must not be changed (see comment
@@ -44,6 +46,8 @@ CPMAddPackage("gh:abdes/cryptopp-cmake#CRYPTOPP_8_9_0")
 target_include_directories(${PLUGIN_NAME} INTERFACE
   "${CMAKE_CURRENT_SOURCE_DIR}/include"
   "${cryptopp-cmake_BINARY_DIR}")
+target_include_directories(${PLUGIN_NAME} PRIVATE
+  "${CMAKE_CURRENT_SOURCE_DIR}/../cpp")
 target_link_libraries(${PLUGIN_NAME} PRIVATE flutter)
 target_link_libraries(${PLUGIN_NAME} PRIVATE PkgConfig::GTK)
 target_link_libraries(${PLUGIN_NAME} PRIVATE cryptopp::cryptopp)
@@ -90,6 +94,7 @@ add_executable(${TEST_RUNNER}
 apply_standard_settings(${TEST_RUNNER})
 target_include_directories(${TEST_RUNNER} PRIVATE
   "${CMAKE_CURRENT_SOURCE_DIR}"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../cpp"
   "${cryptopp-cmake_BINARY_DIR}")
 target_link_libraries(${TEST_RUNNER} PRIVATE flutter)
 target_link_libraries(${TEST_RUNNER} PRIVATE PkgConfig::GTK)
