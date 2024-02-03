@@ -2,7 +2,7 @@
 
 #include <flutter/plugin_registrar_windows.h>
 
-#include "hardware_crypto_plugin.h"
+#include "hardware_crypto_plugin.hpp"
 
 void HardwareCryptoPluginCApiRegisterWithRegistrar(
     FlutterDesktopPluginRegistrarRef registrar) {
