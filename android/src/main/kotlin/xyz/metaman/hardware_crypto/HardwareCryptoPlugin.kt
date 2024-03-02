@@ -45,7 +45,7 @@ class HardwareCryptoPlugin: FlutterPlugin, ActivityAware, HardwareCryptoApi {
             val hardwareCrypto = this.hardwareCrypto ?: throw Error("HardwareCrypto not initialized")
             hardwareCrypto.importPEMKey(alias, key)
             callback(Result.success(Unit))
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             callback(Result.failure(e))
         }
     }
@@ -55,7 +55,7 @@ class HardwareCryptoPlugin: FlutterPlugin, ActivityAware, HardwareCryptoApi {
             val hardwareCrypto = this.hardwareCrypto ?: throw Error("HardwareCrypto not initialized")
             hardwareCrypto.generateKeyPair(alias)
             callback(Result.success(Unit))
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             callback(Result.failure(e))
         }
     }
@@ -65,7 +65,7 @@ class HardwareCryptoPlugin: FlutterPlugin, ActivityAware, HardwareCryptoApi {
             val hardwareCrypto = this.hardwareCrypto ?: throw Error("HardwareCrypto not initialized")
             val publicKey = hardwareCrypto.exportPublicKey(alias)
             callback(Result.success(publicKey))
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             callback(Result.failure(e))
         }
     }
@@ -75,7 +75,7 @@ class HardwareCryptoPlugin: FlutterPlugin, ActivityAware, HardwareCryptoApi {
             val hardwareCrypto = this.hardwareCrypto ?: throw Error("HardwareCrypto not initialized")
             hardwareCrypto.deleteKeyPair(alias)
             callback(Result.success(Unit))
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             callback(Result.failure(e))
         }
     }
@@ -88,11 +88,11 @@ class HardwareCryptoPlugin: FlutterPlugin, ActivityAware, HardwareCryptoApi {
             lifecycle.coroutineScope.launch {
                 try {
                     callback(hardwareCrypto.sign(alias, data))
-                } catch (e: Exception) {
+                } catch (e: Throwable) {
                     callback(Result.failure(e))
                 }
             }
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             callback(Result.failure(e))
         }
     }

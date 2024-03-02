@@ -105,11 +105,6 @@ class HardwareCrypto(private val activityBinding: ActivityPluginBinding) {
                 continuation.resume(Result.failure(Error("onAuthenticationSucceeded gave a null cryptoObject")))
             }
         }
-
-        override fun onAuthenticationFailed() {
-            super.onAuthenticationFailed()
-            continuation.resume(Result.failure(Error("Unknown failure, onAuthenticationFailed called")))
-        }
     }
 
     private fun publicFromPrivateKey(privateKey: ECPrivateKey): PublicKey {
